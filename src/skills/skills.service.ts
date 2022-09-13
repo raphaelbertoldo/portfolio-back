@@ -22,14 +22,18 @@ export class SkillsService {
   }
 
   async findOne(id: string) {
-    return await this.skillsRepository.findOneByOrFail({ id });
+    return await this.skillsRepository.findOneOrFail({ id });
   }
 
-  update(id: string, updateSkillDto: UpdateSkillDto) {
-    return `This action updates a #${id} skill`;
+  async update(id: string, data) {
+    const skill = await this.skillsRepository.findOneOrFail({ id });
+
+    this.skillsRepository.merge(skill, data);
+    return await this.skillsRepository.save(skill);
   }
 
-  remove(id: string) {
-    return `This action removes a #${id} skill`;
+  async remove(id: string) {
+    await this.skillsRepository.findOneOrFail({ id });
+    await this.skillsRepository.softDelete({ id });
   }
 }

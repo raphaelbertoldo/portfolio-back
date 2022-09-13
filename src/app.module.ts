@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ProjectsModule } from './projects/projects.module';
 import { SkillsModule } from './skills/skills.module';
 
 @Module({
@@ -19,12 +20,13 @@ import { SkillsModule } from './skills/skills.module';
       synchronize: false,
       migrationsRun: false,
       migrations: ['db-migrations/*{.ts,.js}'],
-      // cli: {
-      //   migrationsDir: 'db-migrations',
-      // },
+      cli: {
+        migrationsDir: 'db-migrations',
+      },
       logging: true,
     }),
     SkillsModule,
+    ProjectsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity({ name: 'skills' })
-export class SkillsEntity {
+@Entity({ name: 'projects' })
+export class ProjectEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
   @Column()
@@ -10,4 +10,6 @@ export class SkillsEntity {
   description: string;
   @Column()
   img: string;
+  @Column()
+  link: string;
 }
