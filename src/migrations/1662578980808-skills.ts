@@ -24,7 +24,7 @@ export class skills1662578980808 implements MigrationInterface {
           {
             name: 'description',
             type: 'varchar',
-            length: '255',
+            length: '2048',
             isNullable: false,
           },
           {
