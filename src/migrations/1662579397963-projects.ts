@@ -22,7 +22,8 @@ export class projects1662579397963 implements MigrationInterface {
           },
           {
             name: 'description',
-            type: 'text',
+            type: 'varchar',
+            length: '2048',
             isNullable: false,
           },
           {
